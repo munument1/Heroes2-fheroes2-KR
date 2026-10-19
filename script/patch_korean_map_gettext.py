@@ -68,6 +68,43 @@ replace_once(
     "fheroes2::Text text{ _( info.name ), fheroes2::FontType::normalWhite() };",
 )
 
+# Scenario information window (including right-click popups) uses another
+# rendering path for the very same map title and description.
+replace_once(
+    "src/fheroes2/dialog/dialog_gameinfo.cpp",
+    "fheroes2::Text text( mapInfo.name, fheroes2::FontType::normalWhite(), mapLanguage );",
+    "fheroes2::Text text( _( mapInfo.name ), fheroes2::FontType::normalWhite() );",
+)
+replace_once(
+    "src/fheroes2/dialog/dialog_gameinfo.cpp",
+    "text.set( mapInfo.description, fheroes2::FontType::smallWhite(), mapLanguage );",
+    "text.set( _( mapInfo.description ), fheroes2::FontType::smallWhite() );",
+)
+replace_once(
+    "src/fheroes2/dialog/dialog_gameinfo.cpp",
+    "const fheroes2::Text body( mapInfo.description, fheroes2::FontType::normalWhite(), mapLanguage );",
+    "const fheroes2::Text body( _( mapInfo.description ), fheroes2::FontType::normalWhite() );",
+)
+replace_once(
+    "src/fheroes2/dialog/dialog_gameinfo.cpp",
+    "text.set( mapInfo.name, fheroes2::FontType::normalYellow(), mapLanguage );",
+    "text.set( _( mapInfo.name ), fheroes2::FontType::normalYellow() );",
+)
+
+# Randomly generated castle names already pass through gettext, but custom
+# town/castle names stored in the map bypass it. Translate them when loading
+# so every UI which uses Castle::GetName() receives the localized name.
+replace_once(
+    "src/fheroes2/castle/castle.cpp",
+    "        _name = dataStream.getString( 13 );",
+    "        const std::string originalName = dataStream.getString( 13 );\n        _name = _( originalName );",
+)
+replace_once(
+    "src/fheroes2/castle/castle.cpp",
+    "        _name = metadata.customName;",
+    "        _name = _( metadata.customName );",
+)
+
 # Ground events and signs/bottles.
 replace_once(
     "src/fheroes2/heroes/heroes_action.cpp",
