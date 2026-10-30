@@ -140,7 +140,13 @@ jobs:
         run: |
           set -euo pipefail
 
-          test -f "$RELEASE_ARCHIVE"
+          test -s "$RELEASE_ARCHIVE"
+          test -s release-files/windows/fheroes2.exe
+          test -s release-files/windows/files/lang/ko.mo
+          test -s release-files/windows/files/data/resurrection.h2d
+          unzip -tq "$RELEASE_ARCHIVE"
+          unzip -Z1 "$RELEASE_ARCHIVE" | grep -Fxq 'files/data/resurrection.h2d'
+          unzip -Z1 "$RELEASE_ARCHIVE" | grep -Fxq 'files/lang/ko.mo'
           test -f release-files/android/fheroes2-korean.apk
           test -f release-files/android/fheroes2_korean_android.zip
           test -f release-files/android/fheroes2-korean.aab
