@@ -185,6 +185,12 @@ jobs:
           mkdir -p build/x64/Release-SDL2/files/lang
           python script/compile_korean_mo.py build/ko-utf8.mo build/x64/Release-SDL2/files/lang/ko.mo
 
+      - name: Verify Korean Windows runtime assets
+        run: |
+          test -s build/x64/Release-SDL2/fheroes2.exe
+          test -s build/x64/Release-SDL2/files/lang/ko.mo
+          test -s build/x64/Release-SDL2/files/data/resurrection.h2d
+
       - name: Upload Korean Windows build
         uses: actions/upload-artifact@v7
         with:
@@ -193,4 +199,6 @@ jobs:
             build/x64/Release-SDL2/fheroes2.exe
             build/x64/Release-SDL2/*.dll
             build/x64/Release-SDL2/files/lang/ko.mo
+            build/x64/Release-SDL2/files/data/resurrection.h2d
+            build/x64/Release-SDL2/files/timidity/**
           if-no-files-found: error
