@@ -24,7 +24,11 @@ fheroes2를 다운로드하고 설치하려면 [**설치 안내서**](docs/INSTA
 
 ## 한국어 Windows 빌드 설치 안내
 
-한국어판은 **원작 게임 데이터가 포함되지 않은 fheroes2 엔진 빌드**입니다. 공식 fheroes2가 이미 정상 실행된다면, 해당 설치 폴더를 백업한 후 [한국어판 Releases](https://github.com/munument1/Heroes2-fheroes2-KR/releases)에서 Windows x64 ZIP을 내려받아 **기존 fheroes2 설치 폴더에 내용물을 합쳐서** 압축을 해제하세요. `fheroes2.exe`와 필요한 DLL을 덮어쓰되, 기존 원작 `DATA`, `MAPS`, `ANIM`, `MUSIC` 폴더는 삭제하지 마세요.
+한국어판은 **원작 게임 데이터가 포함되지 않은 fheroes2 엔진 빌드**입니다.
+공식 fheroes2가 이미 정상 실행된다면, 해당 설치 폴더를 백업하세요.
+[한국어판 Releases](https://github.com/munument1/Heroes2-fheroes2-KR/releases)에서 Windows x64 ZIP을 내려받아
+**기존 fheroes2 설치 폴더에 내용물을 합쳐서** 압축을 해제하세요.
+`fheroes2.exe`와 필요한 DLL을 덮어쓰되, 기존 원작 `DATA`, `MAPS`, `ANIM`, `MUSIC` 폴더는 삭제하지 마세요.
 
 별도 폴더에 새로 설치할 때는 원작 Heroes of Might and Magic II 또는 공식 데모에서 `DATA`와 `MAPS` 등 필요한 원작 리소스 폴더를 복사해야 합니다. 특히 아래 구조를 확인하세요.
 
@@ -41,7 +45,12 @@ fheroes2/
         └── ko.mo                # 한국어 번역 (한국어 빌드 포함)
 ```
 
-`Data files not found!` 오류가 뜬다면 먼저 `DATA/HEROES2.AGG`와 `files/data/resurrection.h2d`가 **실행 파일 기준 경로**에 모두 있는지 확인하세요. 최신 Windows ZIP에 `resurrection.h2d`가 포함되어 있지 않다면 [이슈 #13](https://github.com/munument1/Heroes2-fheroes2-KR/issues/13)에 보고된 구형 배포본 문제이므로, 수정된 한국어 Windows 배포본을 사용하거나 공식 fheroes2 배포본의 동일한 `files/data` 디렉터리를 보존하세요.
+`Data files not found!` 오류가 뜬다면 `DATA/HEROES2.AGG`와
+`files/data/resurrection.h2d`가 **실행 파일 기준 경로**에 모두 있는지 확인하세요.
+최신 Windows ZIP에 `resurrection.h2d`가 포함되어 있지 않다면
+[이슈 #13](https://github.com/munument1/Heroes2-fheroes2-KR/issues/13)에 보고된 구형 배포본 문제입니다.
+수정된 한국어 Windows 배포본을 사용하거나 공식 fheroes2 배포본의
+동일한 `files/data` 디렉터리를 보존하세요.
 
 ## 레거시 치트 코드
 
